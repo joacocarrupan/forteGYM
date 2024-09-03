@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
-
+ 
 const Registro = ({ navigation }) => {
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -61,13 +61,13 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFC107',
+    backgroundColor: 'black',
     padding: 20,
   },
   formContainer: {
     width: '90%',
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: 'black',
     borderRadius: 10,
     alignItems: 'center',
     elevation: 5,

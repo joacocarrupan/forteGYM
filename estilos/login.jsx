@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
-import { TouchableOpacity, Text, StyleSheet, View, TextInput, Alert } from 'react-native';
+import { TouchableOpacity, Text, StyleSheet, View, TextInput, Alert, Image } from 'react-native';
+import Logo from'./img/FORTE';
 
 const Boton = ({ navigation }) => {
   const [usuario, setUsuario] = useState('');
@@ -10,11 +11,12 @@ const Boton = ({ navigation }) => {
   };
 
   const handleNoTieneAccount = () => {
-    navigation.navigate('Registro'); // Navegar a la pantalla de registro
+    navigation.navigate('Registro'); //pantalla de registro
   };
 
   return (
     <View style={styles.container}>
+      <Text style={styles.welcomeText}><h2>Bienvenido a FORTE</h2></Text>
       <View style={styles.formContainer}>
         <Text style={styles.headerText}>Iniciar Sesión</Text>
         <TextInput
@@ -33,10 +35,15 @@ const Boton = ({ navigation }) => {
         <TouchableOpacity style={styles.button} onPress={handlePress}>
           <Text style={styles.buttonText}>Ingresar</Text>
         </TouchableOpacity>
-        <TouchableOpacity style={styles.linkButton} onPress={handleNoTieneAccount}>
-          <Text style={styles.linkButtonText}>No tiene cuenta</Text>
-        </TouchableOpacity>
       </View>
+      <View style={styles.lineContainer}>
+        <View style={styles.line} />
+        <View style={styles.space} />
+        <View style={styles.line} />
+      </View>
+      <TouchableOpacity onPress={handleNoTieneAccount}>
+        <Text style={styles.linkText}>No tiene cuenta</Text>
+      </TouchableOpacity>
     </View>
   );
 };
@@ -46,29 +53,44 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#FFC107',
+    backgroundColor: 'black', // Fondo negro
+  },
+  welcomeText: {
+    fontSize: 24,
+    fontWeight: 'bold',
+    color: 'white',
+    marginBottom: 20,
+  },
+  lineContainer: {
+    flexDirection: 'row',
+    alignItems: 'center',
+    width: '100%',
+    marginVertical: 20,
+  },
+  line: {
+    flex: 1,
+    height: 1,
+    backgroundColor: 'yellow',
+  },
+  space: {
+    width: 25, // Espacio entre las líneas
   },
   formContainer: {
     width: '90%',
     padding: 20,
-    backgroundColor: 'white',
+    backgroundColor: 'transparent',
     borderRadius: 10,
     alignItems: 'center',
-    elevation: 5,
-    shadowColor: '#000',
-    shadowOffset: { width: 0, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
   },
   headerText: {
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#333',
+    color: 'yellow',
   },
   textInput: {
     width: '100%',
-    backgroundColor: '#F2F2F2',
+    backgroundColor: '#FFC107',
     borderRadius: 8,
     paddingVertical: 12,
     paddingHorizontal: 16,
@@ -82,13 +104,12 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     alignItems: 'center',
   },
-  linkButton: {
-    marginTop: 10,
-  },
-  linkButtonText: {
-    color: '#6200EE',
+  linkText: {
+    color: '#FFC107',
     fontSize: 16,
     fontWeight: 'bold',
+    textDecorationLine: 'underline',
+    marginTop: 10,
   },
   buttonText: {
     color: 'white',
