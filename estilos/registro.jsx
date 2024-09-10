@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { View, Text, StyleSheet, TextInput, TouchableOpacity, Alert } from 'react-native';
- 
+
 const Registro = ({ navigation }) => {
   const [nombre, setNombre] = useState('');
   const [apellido, setApellido] = useState('');
@@ -17,37 +17,49 @@ const Registro = ({ navigation }) => {
     <View style={styles.container}>
       <View style={styles.formContainer}>
         <Text style={styles.headerText}>Registro</Text>
+        
+        <Text style={styles.label}>Nombre</Text>
         <TextInput
           style={styles.textInput}
-          placeholder="Nombre"
+          placeholder="Ingrese su nombre"
           value={nombre}
           onChangeText={setNombre}
         />
+        
+        <Text style={styles.label}>Apellido</Text>
         <TextInput
           style={styles.textInput}
-          placeholder="Apellido"
+          placeholder="Ingrese su apellido"
           value={apellido}
           onChangeText={setApellido}
         />
+        
+        <Text style={styles.label}>Correo</Text>
         <TextInput
           style={styles.textInput}
-          placeholder="Correo"
+          placeholder="Ingrese su correo"
           value={correo}
           onChangeText={setCorreo}
           keyboardType="email-address"
         />
+        
+        <Text style={styles.label}>Contraseña</Text>
         <TextInput
           style={styles.textInput}
-          placeholder="Contraseña"
+          placeholder="Ingrese su contraseña"
           value={contrasena}
           onChangeText={setContrasena}
           secureTextEntry={!mostrarContrasena}
         />
-        <TouchableOpacity onPress={() => setMostrarContrasena(!mostrarContrasena)}>
-          <Text style={styles.togglePasswordText}>
-            {mostrarContrasena ? 'Ocultar Contraseña' : 'Mostrar Contraseña'}
-          </Text>
-        </TouchableOpacity>
+
+        <View style={styles.togglePasswordContainer}>
+          <TouchableOpacity onPress={() => setMostrarContrasena(!mostrarContrasena)}>
+            <Text style={styles.togglePasswordText}>
+              {mostrarContrasena ? 'Ocultar Contraseña' : 'Mostrar Contraseña'}
+            </Text>
+          </TouchableOpacity>
+        </View>
+        
         <TouchableOpacity style={styles.button} onPress={handleRegistro}>
           <Text style={styles.buttonText}>Registrarse</Text>
         </TouchableOpacity>
@@ -69,7 +81,7 @@ const styles = StyleSheet.create({
     padding: 20,
     backgroundColor: 'black',
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: 'flex-start',
     elevation: 5,
     shadowColor: '#000',
     shadowOffset: { width: 0, height: 2 },
@@ -80,11 +92,17 @@ const styles = StyleSheet.create({
     fontSize: 24,
     fontWeight: 'bold',
     marginBottom: 20,
-    color: '#333',
+    color: '#FFF',
+  },
+  label: {
+    color: 'white',
+    fontSize: 16,
+    marginBottom: 5,
   },
   textInput: {
     width: '100%',
-    backgroundColor: '#F2F2F2',
+    backgroundColor: '#FFC107',
+    color: 'black',
     borderRadius: 8,
     paddingVertical: 12,
     paddingHorizontal: 16,
@@ -92,7 +110,7 @@ const styles = StyleSheet.create({
   },
   button: {
     width: '100%',
-    backgroundColor: '#6200EE',
+    backgroundColor: 'grey',
     paddingVertical: 16,
     borderRadius: 8,
     alignItems: 'center',
@@ -102,10 +120,14 @@ const styles = StyleSheet.create({
     fontSize: 18,
     fontWeight: 'bold',
   },
-  togglePasswordText: {
-    color: '#6200EE',
-    fontSize: 16,
+  togglePasswordContainer: {
+    alignItems: 'center', // Centrar el botón en el contenedor
     marginBottom: 12,
+    width: '100%', // Hacer que el contenedor ocupe todo el ancho
+  },
+  togglePasswordText: {
+    color: 'white',
+    fontSize: 16,
   },
 });
 

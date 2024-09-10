@@ -1,23 +1,37 @@
 import React from 'react';
-import { StatusBar } from 'expo-status-bar';
-import { NavigationContainer } from '@react-navigation/native';
-import { createNativeStackNavigator } from '@react-navigation/native-stack';
-import Boton from './estilos/login'; // Componente de inicio de sesión
-import Registro from './estilos/registro'; // Componente de registro
+//inicio/3 a 20/
+/////registroYsesion///
+//import React from 'react';
+//import { StatusBar } from 'expo-status-bar';
+//import { NavigationContainer } from '@react-navigation/native';
+//import { createNativeStackNavigator } from '@react-navigation/native-stack';
+//import Boton from './estilos/login'; 
+//import Registro from './estilos/registro';
+import { View, StyleSheet } from 'react-native';
+import Sidebar from './pantallas/pantallainc'; 
 
-
-const Stack = createNativeStackNavigator();
+//const Stack = createNativeStackNavigator();
 
 const App = () => {
   return (
-    <NavigationContainer>
-      <StatusBar style="auto" />
-      <Stack.Navigator screenOptions={{ headerShown: false }}>
-        <Stack.Screen name="Inicio" component={Boton} />
-        <Stack.Screen name="Registro" component={Registro} />
-      </Stack.Navigator>
-    </NavigationContainer>
-  );
+    <View style={styles.container}>
+      <Sidebar />
+    </View>
+        /////registroYsesion///
+    //import React from 'react';
+    //import { StatusBar } from 'expo-status-bar';
+    //import { NavigationContainer } from '@react-navigation/native';
+    //import { createNativeStackNavigator } from '@react-navigation/native-stack';
+    //import Boton from './estilos/login'; 
+    //import Registro from './estilos/registro';
+);
 };
+
+const styles = StyleSheet.create({
+  container: {
+    flex: 1,
+    backgroundColor: 'black', // Color de fondo negro
+  },
+});
 
 export default App;
