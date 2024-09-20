@@ -1,17 +1,34 @@
 import React from 'react';
 import { View, TextInput, StyleSheet, Image, Dimensions, Text, TouchableOpacity } from 'react-native';
-import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';
-import FontAwesome6 from '@expo/vector-icons/FontAwesome6';
-import FontAwesome5 from '@expo/vector-icons/FontAwesome5';
+import { useNavigation } from '@react-navigation/native';
+import MaterialCommunityIcons from '@expo/vector-icons/MaterialCommunityIcons';//casa
+import FontAwesome6 from '@expo/vector-icons/FontAwesome6';//mancuerna
+import FontAwesome5 from '@expo/vector-icons/FontAwesome5';//usuario
+import Mchat from '@expo/vector-icons/MaterialCommunityIcons';
+import Minfo from '@expo/vector-icons/MaterialCommunityIcons';
+import Mapas from '@expo/vector-icons/MaterialCommunityIcons';
 import logoF from "../img/logoForte.png";
 
 const { width } = Dimensions.get('window');
 
+
 const Sidebar = () => {
-  const handleButtonPress = (nombreBoton) => {
+  const navigation = useNavigation();
+
+  const botonPress = (nombreBoton) => {
     console.log(`${nombreBoton} presionado`);
   };
 
+  const navCasa = () => {
+    navigation.navigate('pantallainc');
+  };
+  const navEJ = () => {
+    navigation.navigate('ejercicios');
+  };
+  const navUS = () => {
+    navigation.navigate('Usuario'); 
+  };
+ 
   return (
     <View style={styles.container}>
       <View style={styles.navBar}>
@@ -38,28 +55,28 @@ const Sidebar = () => {
         {/* Primer grupo de botones */}
         <View style={styles.buttonRow}>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => handleButtonPress('Botón 1')}>
+            <TouchableOpacity style={styles.yellowButton}  onPress={() => botonPress('Botón 1')}>
               <MaterialCommunityIcons name="weight-lifter" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Rutinas</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => handleButtonPress('Botón 2')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 2')}>
               <MaterialCommunityIcons name="calendar" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Calendario</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => handleButtonPress('Botón 3')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 3')}>
               <FontAwesome6 name="clipboard-list" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Actividades</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => handleButtonPress('Botón 4')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 4')}>
               <FontAwesome6 name="video" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Tutoriales</Text>
@@ -69,47 +86,53 @@ const Sidebar = () => {
         {/* Segundo grupo de botones */}
         <View style={styles.buttonRow}>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => handleButtonPress('Botón 5')}>
-              <MaterialCommunityIcons name="information" size={30} color="black" />
+            <TouchableOpacity style={styles.yellowButton} onPress={() => ('Botón 5')}>
+            <Mchat name="wechat" size={30} color="black" />
             </TouchableOpacity>
-            <Text style={styles.buttonText}>Info</Text>
+            <Text style={styles.buttonText}>chats</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => handleButtonPress('Botón 6')}>
-              <FontAwesome6 name="user-friends" size={30} color="black" />
+            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 6')}>
+            <FontAwesome6 name="dumbbell" size={36} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Entrenadores</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => handleButtonPress('Botón 7')}>
-              <MaterialCommunityIcons name="map" size={30} color="black" />
+            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 7')}>
+            <Mapas name="google-maps" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Ubicación</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => handleButtonPress('Botón 8')}>
-              <FontAwesome6 name="info-circle" size={30} color="black" />
+            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 8')}>
+            <Minfo name="information" size={24} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>info gym</Text>
           </View>
         </View>
       </View>
-      <View style={styles.footer}>
+      <View style={styles.pieDpag}>
         <View style={styles.iconContainer}>
           <View style={styles.iconWrapper}>
+          <TouchableOpacity onPress={navCasa}>
             <MaterialCommunityIcons name="home" size={36} color="black" />
             <Text style={styles.iconText}>Inicio</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.iconWrapper}>
+          <TouchableOpacity onPress={navEJ}>
             <FontAwesome6 name="dumbbell" size={36} color="black" />
             <Text style={styles.iconText}>Ejercicios</Text>
+            </TouchableOpacity>
           </View>
           <View style={styles.iconWrapper}>
-            <FontAwesome5 name="user-circle" size={36} color="black" />
-            <Text style={styles.iconText}>Usuario</Text>
+            <TouchableOpacity onPress={navUS}>
+              <FontAwesome5 name="user-circle" size={36} color="black" />
+              <Text style={styles.iconText}>Usuario</Text>
+            </TouchableOpacity>
           </View>
         </View>
       </View>
@@ -132,7 +155,7 @@ const styles = StyleSheet.create({
   logo: {
     width: width > 500 ? 120 : 100,
     height: 60,
-    marginTop: 20, // Aumenta el margen inferior si es necesario
+    marginTop: 20, 
   },
   buscador: {
     height: 40,
@@ -144,7 +167,7 @@ const styles = StyleSheet.create({
     backgroundColor: '#333',
     flex: 1,
     marginLeft: 10,
-    marginTop: 27, // Agrega margen superior para mover el buscador hacia abajo
+    marginTop: 27, 
   },
   content: {
     flex: 1,
@@ -195,7 +218,7 @@ const styles = StyleSheet.create({
     fontSize: 14,
     marginTop: 5,
   },
-  footer: {
+  pieDpag: {
     backgroundColor: '#FFC107',
     height: 100,
     justifyContent: 'center',

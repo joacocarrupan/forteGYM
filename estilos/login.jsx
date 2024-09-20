@@ -8,6 +8,7 @@ const Boton = ({ navigation }) => {
 
   const handlePress = () => {
     Alert.alert(`Botón presionado. Usuario: ${usuario}, Contraseña: ${contrasena}`);
+    navigation.navigate('Pantallainc');
   };
 
   const handleNoTieneAccount = () => {
