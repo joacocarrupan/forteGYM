@@ -9,6 +9,8 @@ import Usuario from './PanUsuario/usuario';
 import EJ from './panEje/ejercicios';
 import Edit from './PanUsuario/editUser';
 import Ubicacion from './panUbi/ubi';
+import Calendario from './calendario/cale';
+
 
 const Stack = createNativeStackNavigator();
 
@@ -25,7 +27,7 @@ const App = () => {
         <Stack.Screen name="ejercicios" component={EJ}/>
         <Stack.Screen name="editUser" component={Edit}/>
         <Stack.Screen name="ubi" component={Ubicacion}/>
-
+        <Stack.Screen name="cale" component={Calendario}/>
       </Stack.Navigator>
     </NavigationContainer>
   );

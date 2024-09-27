@@ -15,6 +15,9 @@ const { width } = Dimensions.get('window');
 const Sidebar = () => {
   const navigation = useNavigation();
 
+   const hadleSelectMenuOpcion = (screen) =>{
+    navigation.navigate(screen);
+   }
   const botonPress = (nombreBoton) => {
     console.log(`${nombreBoton} presionado`);
   };
@@ -55,28 +58,30 @@ const Sidebar = () => {
         {/* Primer grupo de botones */}
         <View style={styles.buttonRow}>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton}  onPress={() => botonPress('Botón 1')}>
+            {/* Agregar un identificador al touchable, en el onPress tomar el identificador y usarlo en la funcion botonPress()*/}
+            {/* dentro de la funcion haces el redirecionnamiento */}
+            <TouchableOpacity style={styles.yellowButton}  onPress={() => hadleSelectMenuOpcion('Usuario')}>
               <MaterialCommunityIcons name="weight-lifter" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Rutinas</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 2')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => hadleSelectMenuOpcion('cale')}>
               <MaterialCommunityIcons name="calendar" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Calendario</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 3')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => hadleSelectMenuOpcion('Actividades')}>
               <FontAwesome6 name="clipboard-list" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Actividades</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 4')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => hadleSelectMenuOpcion('Tutoriales')}>
               <FontAwesome6 name="video" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Tutoriales</Text>
@@ -86,28 +91,28 @@ const Sidebar = () => {
         {/* Segundo grupo de botones */}
         <View style={styles.buttonRow}>
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => ('Botón 5')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => hadleSelectMenuOpcion('Chats')}>
             <Mchat name="wechat" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>chats</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 6')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => hadleSelectMenuOpcion('Entrenadores')}>
             <FontAwesome6 name="dumbbell" size={36} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Entrenadores</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 7')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => hadleSelectMenuOpcion('ubi')}>
             <Mapas name="google-maps" size={30} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>Ubicación</Text>
           </View>
 
           <View style={styles.buttonContainer}>
-            <TouchableOpacity style={styles.yellowButton} onPress={() => botonPress('Botón 8')}>
+            <TouchableOpacity style={styles.yellowButton} onPress={() => hadleSelectMenuOpcion('infoGYM')}>
             <Minfo name="information" size={24} color="black" />
             </TouchableOpacity>
             <Text style={styles.buttonText}>info gym</Text>
@@ -163,8 +168,8 @@ const styles = StyleSheet.create({
     borderWidth: 1,
     borderRadius: 20,
     paddingHorizontal: 15,
-    color: '#FFF',
-    backgroundColor: '#333',
+    color: 'black',
+    backgroundColor: 'white',
     flex: 1,
     marginLeft: 10,
     marginTop: 27, 

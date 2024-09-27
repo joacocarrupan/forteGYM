@@ -34,7 +34,7 @@ const Usuario = () => {
     <View style={styles.container}>
       <View style={styles.navBar}>
         <TouchableOpacity onPress={navBack}>
-          <Ionicons name="arrow-back" size={24} color="white" />
+          <Ionicons name="arrow-back" size={30} color="white" />
         </TouchableOpacity>
         <TextInput
           style={styles.buscador}
@@ -53,6 +53,7 @@ const Usuario = () => {
         <View style={styles.infoContainer}>
           <Text style={styles.greeting}>¡Hola!</Text>
           <Text style={styles.name}>carrupan joaquin</Text>
+          <Text style={styles.forte}>Forte gym</Text>
           {/* Mover detalles debajo del nombre */}
           <View style={styles.detailsContainer}>
 
@@ -103,7 +104,7 @@ const styles = StyleSheet.create({
   navBar: {
     flexDirection: 'row',
     alignItems: 'center',
-    marginTop: 22,
+    marginTop: 40,
     padding: 5,
   },
   buscador: {
@@ -119,18 +120,18 @@ const styles = StyleSheet.create({
   },
   content: {
     alignItems: 'flex-start',
-    paddingHorizontal: 80, // Espaciado horizontal
+    paddingHorizontal: 50, // Espaciado horizontal
   },
   perfilText: {
     color: 'white',
-    fontSize: 50,
+    fontSize: 55,
     fontWeight: 'bold', 
-    marginBottom: 1, // Espacio debajo del texto "Perfil"
-    marginTop: -340,
+    marginBottom: 0, // Espacio debajo del texto "Perfil"
+    marginTop: -450,
   },
   card: {
     backgroundColor: '#FFC107', // Color de fondo
-    borderRadius: 10,
+    borderRadius: 15,
     padding: 15,
     flexDirection: 'row',
     alignItems: 'center',
@@ -140,10 +141,10 @@ const styles = StyleSheet.create({
       height: 2,
     },
     shadowOpacity: 0.3,
-    shadowRadius: 4,
-    elevation: 5, // Para Android
+    shadowRadius: 8,
+    elevation: 9, // Para Android
     margin: 5,
-    marginTop: -610, // Ajusta este valor negativo si es necesario
+    marginTop: -840, // Ajusta este valor negativo si es necesario
   },
   avatar: {
     width: 80,
@@ -155,12 +156,17 @@ const styles = StyleSheet.create({
     flex: 1,
   },
   greeting: {
-    fontSize: 16,
+    fontSize: 18,
     fontWeight: 'bold',
     color: '#000',
   },
   name: {
-    fontSize: 20,
+    fontSize: 22,
+    fontWeight: 'bold',
+    color: '#000',
+  },
+  forte:{
+    fontSize: 15,
     fontWeight: 'bold',
     color: '#000',
   },
